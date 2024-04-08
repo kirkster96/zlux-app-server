@@ -42,9 +42,9 @@ components:
                             } else { return addresses } }; 
                       a() }}"
         port: "${{ function a(){
-                     if (components['app-server'].zowe?.server?.attls === true) {
+                     if (components['app-server'].zowe?.network?.server?.attls === true) {
                        return undefined;
-                     } else if (zowe?.server?.attls === true) {
+                     } else if (zowe?.network?.server?.attls === true) {
                        return undefined;
                      } else if (process.env.ZWED_SERVER_HTTPS_PORT) {
                        return Number(process.env.ZWED_SERVER_HTTPS_PORT);
