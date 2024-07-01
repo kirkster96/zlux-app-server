@@ -28,11 +28,6 @@ if [ "$ZWE_components_gateway_enabled" = "true" ]; then
     if [ "${ZWE_RUN_ON_ZOS}" != "true" ]; then
       zss_def_template="zss.apiml_static_reg.yaml.template"
       export ZSS_PORT="${ZWE_components_zss_port}"
-      if [ "${ZWE_components_zss_tls}" != "false" ]; then
-        export ZSS_PROTOCOL=https
-      else
-        export ZSS_PROTOCOL=http
-      fi
   
       if [ -n "${ZWE_STATIC_DEFINITIONS_DIR}" ]; then
         zss_registration_yaml=${ZWE_STATIC_DEFINITIONS_DIR}/zss.apiml_static_reg_yaml_template.${ZWE_CLI_PARAMETER_HA_INSTANCE}.yml
@@ -43,7 +38,6 @@ if [ "$ZWE_components_gateway_enabled" = "true" ]; then
       fi
     
       unset ZSS_PORT
-      unset ZSS_PROTOCOL
     fi
   fi
 fi
